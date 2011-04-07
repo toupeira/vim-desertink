@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/.vim/bundle/desertink.vim/colors/desertink.vim.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="vim">
+<meta name="settings" content="use_css,number_lines">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #ffffff; background-color: #1c1c1c; }
+body { font-family: monospace; color: #ffffff; background-color: #1c1c1c; }
+.lnr { color: #4e4e4e; background-color: #121212; }
+.Folded { color: #ffaf00; background-color: #262626; font-weight: bold; }
+.Normal { color: #ffffff; background-color: #1c1c1c; }
+.Type { color: #87af5f; font-weight: bold; }
+.Special { color: #ffaf5f; }
+.Identifier { color: #87ff87; }
+.Constant { color: #ff8787; }
+.Statement { color: #ffd75f; font-weight: bold; }
+.PreProc { color: #d75f5f; font-weight: bold; }
+.Comment { color: #87d7ff; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<span class="lnr">  1 </span><span class="Comment">&quot; Vim color file</span>
+<span class="lnr">  2 </span><span class="Comment">&quot;</span>
+<span class="lnr">  3 </span><span class="Comment">&quot;</span> <span class="PreProc">Name:</span><span class="Comment">   desertink.vim</span>
+<span class="lnr">  4 </span><span class="Comment">&quot;</span> <span class="PreProc">URL:</span><span class="Comment">    <a href="https://github.com/toupeira/desertink.vim">https://github.com/toupeira/desertink.vim</a></span>
+<span class="lnr">  5 </span><span class="Comment">&quot;</span> <span class="PreProc">Author:</span><span class="Comment"> Markus Koller &lt;markus-koller@gmx.ch&gt;</span>
+<span class="lnr">  6 </span><span class="Comment">&quot;</span>
+<span class="lnr">  7 </span><span class="Comment">&quot;</span> <span class="PreProc">Note:</span><span class="Comment">   Only works in GUI and 88/256 color terminals</span>
+<span class="lnr">  8 </span><span class="Comment">&quot;</span>
+<span class="lnr">  9 </span><span class="Comment">&quot; This is a version of the default desert colorscheme with a</span>
+<span class="lnr"> 10 </span><span class="Comment">&quot; darker background and more colorful foreground colors.</span>
+<span class="lnr"> 11 </span><span class="Comment">&quot;</span>
+<span class="lnr"> 12 </span><span class="Comment">&quot; It also adds highlighting for folds, diffs, line numbers,</span>
+<span class="lnr"> 13 </span><span class="Comment">&quot; signcolumn, completion menus, and cursor line/column.</span>
+<span class="lnr"> 14 </span>
+<span class="lnr"> 15 </span><span class="Comment">&quot; The colors are automatically converted for 88/256 color terminals,</span>
+<span class="lnr"> 16 </span><span class="Comment">&quot; adapted from <a href="http://www.vim.org/scripts/script.php?script_id=1243">http://www.vim.org/scripts/script.php?script_id=1243</a></span>
+<span class="lnr"> 17 </span><span class="Comment">&quot;</span>
+<span class="lnr"> 18 </span>
+<span class="lnr"> 19 </span><span class="Statement">set</span> <span class="PreProc">background</span>=dark
+<span class="lnr"> 20 </span><span class="Statement">if</span> <span class="Statement">version</span> <span class="Statement">&gt;</span> <span class="Constant">580</span>
+<span class="lnr"> 21 </span><span class="Comment">  &quot; no guarantees for version 5.8 and below, but this makes it stop</span>
+<span class="lnr"> 22 </span><span class="Comment">  &quot; complaining</span>
+<span class="lnr"> 23 </span>  <span class="Statement">hi</span> clear
+<span class="lnr"> 24 </span>  <span class="Statement">if</span> <span class="Identifier">exists</span><span class="Special">(</span><span class="Constant">&quot;syntax_on&quot;</span><span class="Special">)</span>
+<span class="lnr"> 25 </span>    <span class="Statement">syntax</span> <span class="Type">reset</span>
+<span class="lnr"> 26 </span>  <span class="Statement">endif</span>
+<span class="lnr"> 27 </span><span class="Statement">endif</span>
+<span class="lnr"> 28 </span><span class="Statement">let</span> g:colors_name<span class="Statement">=</span><span class="Constant">&quot;desertink&quot;</span>
+<span class="lnr"> 29 </span>
+<span class="lnr"> 30 </span><span class="Statement">if</span> <span class="Identifier">has</span><span class="Special">(</span><span class="Constant">&quot;gui_running&quot;</span><span class="Special">)</span> <span class="Statement">||</span> &amp;t_Co <span class="Statement">==</span> <span class="Constant">88</span> <span class="Statement">||</span> &amp;t_Co <span class="Statement">==</span> <span class="Constant">256</span>
+<span class="lnr"> 31 </span><span class="Comment">  &quot; functions {{{</span>
+<span class="lnr"> 32 </span><span class="Comment">  &quot; returns an approximate grey index for the given grey level</span>
+<span class="lnr"> 33 </span>  <span class="Statement">fun</span>! <span class="Special">&lt;SID&gt;</span>grey_number<span class="Special">(</span>x<span class="Special">)</span>
+<span class="lnr"> 34 </span>    <span class="Statement">if</span> &amp;t_Co <span class="Statement">==</span> <span class="Constant">88</span>
+<span class="lnr"> 35 </span>      <span class="Statement">if</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">23</span>
+<span class="lnr"> 36 </span>        <span class="Statement">return</span> <span class="Constant">0</span>
+<span class="lnr"> 37 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">69</span>
+<span class="lnr"> 38 </span>        <span class="Statement">return</span> <span class="Constant">1</span>
+<span class="lnr"> 39 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">103</span>
+<span class="lnr"> 40 </span>        <span class="Statement">return</span> <span class="Constant">2</span>
+<span class="lnr"> 41 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">127</span>
+<span class="lnr"> 42 </span>        <span class="Statement">return</span> <span class="Constant">3</span>
+<span class="lnr"> 43 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">150</span>
+<span class="lnr"> 44 </span>        <span class="Statement">return</span> <span class="Constant">4</span>
+<span class="lnr"> 45 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">173</span>
+<span class="lnr"> 46 </span>        <span class="Statement">return</span> <span class="Constant">5</span>
+<span class="lnr"> 47 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">196</span>
+<span class="lnr"> 48 </span>        <span class="Statement">return</span> <span class="Constant">6</span>
+<span class="lnr"> 49 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">219</span>
+<span class="lnr"> 50 </span>        <span class="Statement">return</span> <span class="Constant">7</span>
+<span class="lnr"> 51 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">243</span>
+<span class="lnr"> 52 </span>        <span class="Statement">return</span> <span class="Constant">8</span>
+<span class="lnr"> 53 </span>      <span class="Statement">else</span>
+<span class="lnr"> 54 </span>        <span class="Statement">return</span> <span class="Constant">9</span>
+<span class="lnr"> 55 </span>      <span class="Statement">endif</span>
+<span class="lnr"> 56 </span>    <span class="Statement">else</span>
+<span class="lnr"> 57 </span>      <span class="Statement">if</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">14</span>
+<span class="lnr"> 58 </span>        <span class="Statement">return</span> <span class="Constant">0</span>
+<span class="lnr"> 59 </span>      <span class="Statement">else</span>
+<span class="lnr"> 60 </span>        <span class="Statement">let</span> l:<span class="Statement">n</span> <span class="Statement">=</span> <span class="Special">(</span><span class="Identifier">a:x</span> <span class="Statement">-</span> <span class="Constant">8</span><span class="Special">)</span> / <span class="Constant">10</span>
+<span class="lnr"> 61 </span>        <span class="Statement">let</span> l:<span class="Statement">m</span> <span class="Statement">=</span> <span class="Special">(</span><span class="Identifier">a:x</span> <span class="Statement">-</span> <span class="Constant">8</span><span class="Special">)</span> <span class="Identifier">%</span> <span class="Constant">10</span>
+<span class="lnr"> 62 </span>        <span class="Statement">if</span> l:m <span class="Statement">&lt;</span> <span class="Constant">5</span>
+<span class="lnr"> 63 </span>          <span class="Statement">return</span> l:n
+<span class="lnr"> 64 </span>        <span class="Statement">else</span>
+<span class="lnr"> 65 </span>          <span class="Statement">return</span> l:n <span class="Statement">+</span> <span class="Constant">1</span>
+<span class="lnr"> 66 </span>        <span class="Statement">endif</span>
+<span class="lnr"> 67 </span>      <span class="Statement">endif</span>
+<span class="lnr"> 68 </span>    <span class="Statement">endif</span>
+<span class="lnr"> 69 </span>  <span class="Statement">endfun</span>
+<span class="lnr"> 70 </span>
+<span class="lnr"> 71 </span><span class="Comment">  &quot; returns the actual grey level represented by the grey index</span>
+<span class="lnr"> 72 </span>  <span class="Statement">fun</span>! <span class="Special">&lt;SID&gt;</span>grey_level<span class="Special">(</span>n<span class="Special">)</span>
+<span class="lnr"> 73 </span>    <span class="Statement">if</span> &amp;t_Co <span class="Statement">==</span> <span class="Constant">88</span>
+<span class="lnr"> 74 </span>      <span class="Statement">if</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">0</span>
+<span class="lnr"> 75 </span>        <span class="Statement">return</span> <span class="Constant">0</span>
+<span class="lnr"> 76 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">1</span>
+<span class="lnr"> 77 </span>        <span class="Statement">return</span> <span class="Constant">46</span>
+<span class="lnr"> 78 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">2</span>
+<span class="lnr"> 79 </span>        <span class="Statement">return</span> <span class="Constant">92</span>
+<span class="lnr"> 80 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">3</span>
+<span class="lnr"> 81 </span>        <span class="Statement">return</span> <span class="Constant">115</span>
+<span class="lnr"> 82 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">4</span>
+<span class="lnr"> 83 </span>        <span class="Statement">return</span> <span class="Constant">139</span>
+<span class="lnr"> 84 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">5</span>
+<span class="lnr"> 85 </span>        <span class="Statement">return</span> <span class="Constant">162</span>
+<span class="lnr"> 86 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">6</span>
+<span class="lnr"> 87 </span>        <span class="Statement">return</span> <span class="Constant">185</span>
+<span class="lnr"> 88 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">7</span>
+<span class="lnr"> 89 </span>        <span class="Statement">return</span> <span class="Constant">208</span>
+<span class="lnr"> 90 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">8</span>
+<span class="lnr"> 91 </span>        <span class="Statement">return</span> <span class="Constant">231</span>
+<span class="lnr"> 92 </span>      <span class="Statement">else</span>
+<span class="lnr"> 93 </span>        <span class="Statement">return</span> <span class="Constant">255</span>
+<span class="lnr"> 94 </span>      <span class="Statement">endif</span>
+<span class="lnr"> 95 </span>    <span class="Statement">else</span>
+<span class="lnr"> 96 </span>      <span class="Statement">if</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">0</span>
+<span class="lnr"> 97 </span>        <span class="Statement">return</span> <span class="Constant">0</span>
+<span class="lnr"> 98 </span>      <span class="Statement">else</span>
+<span class="lnr"> 99 </span>        <span class="Statement">return</span> <span class="Constant">8</span> <span class="Statement">+</span> <span class="Special">(</span><span class="Identifier">a:n</span> * <span class="Constant">10</span><span class="Special">)</span>
+<span class="lnr">100 </span>      <span class="Statement">endif</span>
+<span class="lnr">101 </span>    <span class="Statement">endif</span>
+<span class="lnr">102 </span>  <span class="Statement">endfun</span>
+<span class="lnr">103 </span>
+<span class="lnr">104 </span><span class="Comment">  &quot; returns the palette index for the given grey index</span>
+<span class="lnr">105 </span>  <span class="Statement">fun</span>! <span class="Special">&lt;SID&gt;</span>grey_color<span class="Special">(</span>n<span class="Special">)</span>
+<span class="lnr">106 </span>    <span class="Statement">if</span> &amp;t_Co <span class="Statement">==</span> <span class="Constant">88</span>
+<span class="lnr">107 </span>      <span class="Statement">if</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">0</span>
+<span class="lnr">108 </span>        <span class="Statement">return</span> <span class="Constant">16</span>
+<span class="lnr">109 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">9</span>
+<span class="lnr">110 </span>        <span class="Statement">return</span> <span class="Constant">79</span>
+<span class="lnr">111 </span>      <span class="Statement">else</span>
+<span class="lnr">112 </span>        <span class="Statement">return</span> <span class="Constant">79</span> <span class="Statement">+</span> <span class="Identifier">a:n</span>
+<span class="lnr">113 </span>      <span class="Statement">endif</span>
+<span class="lnr">114 </span>    <span class="Statement">else</span>
+<span class="lnr">115 </span>      <span class="Statement">if</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">0</span>
+<span class="lnr">116 </span>        <span class="Statement">return</span> <span class="Constant">16</span>
+<span class="lnr">117 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">25</span>
+<span class="lnr">118 </span>        <span class="Statement">return</span> <span class="Constant">231</span>
+<span class="lnr">119 </span>      <span class="Statement">else</span>
+<span class="lnr">120 </span>        <span class="Statement">return</span> <span class="Constant">231</span> <span class="Statement">+</span> <span class="Identifier">a:n</span>
+<span class="lnr">121 </span>      <span class="Statement">endif</span>
+<span class="lnr">122 </span>    <span class="Statement">endif</span>
+<span class="lnr">123 </span>  <span class="Statement">endfun</span>
+<span class="lnr">124 </span>
+<span class="lnr">125 </span><span class="Comment">  &quot; returns an approximate color index for the given color level</span>
+<span class="lnr">126 </span>  <span class="Statement">fun</span>! <span class="Special">&lt;SID&gt;</span>rgb_number<span class="Special">(</span>x<span class="Special">)</span>
+<span class="lnr">127 </span>    <span class="Statement">if</span> &amp;t_Co <span class="Statement">==</span> <span class="Constant">88</span>
+<span class="lnr">128 </span>      <span class="Statement">if</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">69</span>
+<span class="lnr">129 </span>        <span class="Statement">return</span> <span class="Constant">0</span>
+<span class="lnr">130 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">172</span>
+<span class="lnr">131 </span>        <span class="Statement">return</span> <span class="Constant">1</span>
+<span class="lnr">132 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">230</span>
+<span class="lnr">133 </span>        <span class="Statement">return</span> <span class="Constant">2</span>
+<span class="lnr">134 </span>      <span class="Statement">else</span>
+<span class="lnr">135 </span>        <span class="Statement">return</span> <span class="Constant">3</span>
+<span class="lnr">136 </span>      <span class="Statement">endif</span>
+<span class="lnr">137 </span>    <span class="Statement">else</span>
+<span class="lnr">138 </span>      <span class="Statement">if</span> <span class="Identifier">a:x</span> <span class="Statement">&lt;</span> <span class="Constant">75</span>
+<span class="lnr">139 </span>        <span class="Statement">return</span> <span class="Constant">0</span>
+<span class="lnr">140 </span>      <span class="Statement">else</span>
+<span class="lnr">141 </span>        <span class="Statement">let</span> l:<span class="Statement">n</span> <span class="Statement">=</span> <span class="Special">(</span><span class="Identifier">a:x</span> <span class="Statement">-</span> <span class="Constant">55</span><span class="Special">)</span> / <span class="Constant">40</span>
+<span class="lnr">142 </span>        <span class="Statement">let</span> l:<span class="Statement">m</span> <span class="Statement">=</span> <span class="Special">(</span><span class="Identifier">a:x</span> <span class="Statement">-</span> <span class="Constant">55</span><span class="Special">)</span> <span class="Identifier">%</span> <span class="Constant">40</span>
+<span class="lnr">143 </span>        <span class="Statement">if</span> l:m <span class="Statement">&lt;</span> <span class="Constant">20</span>
+<span class="lnr">144 </span>          <span class="Statement">return</span> l:n
+<span class="lnr">145 </span>        <span class="Statement">else</span>
+<span class="lnr">146 </span>          <span class="Statement">return</span> l:n <span class="Statement">+</span> <span class="Constant">1</span>
+<span class="lnr">147 </span>        <span class="Statement">endif</span>
+<span class="lnr">148 </span>      <span class="Statement">endif</span>
+<span class="lnr">149 </span>    <span class="Statement">endif</span>
+<span class="lnr">150 </span>  <span class="Statement">endfun</span>
+<span class="lnr">151 </span>
+<span class="lnr">152 </span><span class="Comment">  &quot; returns the actual color level for the given color index</span>
+<span class="lnr">153 </span>  <span class="Statement">fun</span>! <span class="Special">&lt;SID&gt;</span>rgb_level<span class="Special">(</span>n<span class="Special">)</span>
+<span class="lnr">154 </span>    <span class="Statement">if</span> &amp;t_Co <span class="Statement">==</span> <span class="Constant">88</span>
+<span class="lnr">155 </span>      <span class="Statement">if</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">0</span>
+<span class="lnr">156 </span>        <span class="Statement">return</span> <span class="Constant">0</span>
+<span class="lnr">157 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">1</span>
+<span class="lnr">158 </span>        <span class="Statement">return</span> <span class="Constant">139</span>
+<span class="lnr">159 </span>      <span class="Statement">elseif</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">2</span>
+<span class="lnr">160 </span>        <span class="Statement">return</span> <span class="Constant">205</span>
+<span class="lnr">161 </span>      <span class="Statement">else</span>
+<span class="lnr">162 </span>        <span class="Statement">return</span> <span class="Constant">255</span>
+<span class="lnr">163 </span>      <span class="Statement">endif</span>
+<span class="lnr">164 </span>    <span class="Statement">else</span>
+<span class="lnr">165 </span>      <span class="Statement">if</span> <span class="Identifier">a:n</span> <span class="Statement">==</span> <span class="Constant">0</span>
+<span class="lnr">166 </span>        <span class="Statement">return</span> <span class="Constant">0</span>
+<span class="lnr">167 </span>      <span class="Statement">else</span>
+<span class="lnr">168 </span>        <span class="Statement">return</span> <span class="Constant">55</span> <span class="Statement">+</span> <span class="Special">(</span><span class="Identifier">a:n</span> * <span class="Constant">40</span><span class="Special">)</span>
+<span class="lnr">169 </span>      <span class="Statement">endif</span>
+<span class="lnr">170 </span>    <span class="Statement">endif</span>
+<span class="lnr">171 </span>  <span class="Statement">endfun</span>
+<span class="lnr">172 </span>
+<span class="lnr">173 </span><span class="Comment">  &quot; returns the palette index for the given R/G/B color indices</span>
+<span class="lnr">174 </span>  <span class="Statement">fun</span>! <span class="Special">&lt;SID&gt;</span>rgb_color<span class="Special">(</span>x, y, z<span class="Special">)</span>
+<span class="lnr">175 </span>    <span class="Statement">if</span> &amp;t_Co <span class="Statement">==</span> <span class="Constant">88</span>
+<span class="lnr">176 </span>      <span class="Statement">return</span> <span class="Constant">16</span> <span class="Statement">+</span> <span class="Special">(</span><span class="Identifier">a:x</span> * <span class="Constant">16</span><span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span><span class="Identifier">a:y</span> * <span class="Constant">4</span><span class="Special">)</span> <span class="Statement">+</span> <span class="Identifier">a:z</span>
+<span class="lnr">177 </span>    <span class="Statement">else</span>
+<span class="lnr">178 </span>      <span class="Statement">return</span> <span class="Constant">16</span> <span class="Statement">+</span> <span class="Special">(</span><span class="Identifier">a:x</span> * <span class="Constant">36</span><span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span><span class="Identifier">a:y</span> * <span class="Constant">6</span><span class="Special">)</span> <span class="Statement">+</span> <span class="Identifier">a:z</span>
+<span class="lnr">179 </span>    <span class="Statement">endif</span>
+<span class="lnr">180 </span>  <span class="Statement">endfun</span>
+<span class="lnr">181 </span>
+<span class="lnr">182 </span><span class="Comment">  &quot; returns the palette index to approximate the given R/G/B color levels</span>
+<span class="lnr">183 </span>  <span class="Statement">fun</span>! <span class="Special">&lt;SID&gt;</span><span class="Statement">color</span><span class="Special">(</span>r, g, b<span class="Special">)</span>
+<span class="lnr">184 </span><span class="Comment">    &quot; get the closest grey</span>
+<span class="lnr">185 </span>    <span class="Statement">let</span> l:gx <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">grey_number</span><span class="Special">(</span><span class="Identifier">a:r</span><span class="Special">)</span>
+<span class="lnr">186 </span>    <span class="Statement">let</span> l:gy <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">grey_number</span><span class="Special">(</span><span class="Identifier">a:g</span><span class="Special">)</span>
+<span class="lnr">187 </span>    <span class="Statement">let</span> l:gz <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">grey_number</span><span class="Special">(</span><span class="Identifier">a:b</span><span class="Special">)</span>
+<span class="lnr">188 </span>
+<span class="lnr">189 </span><span class="Comment">    &quot; get the closest color</span>
+<span class="lnr">190 </span>    <span class="Statement">let</span> l:<span class="Statement">x</span> <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">rgb_number</span><span class="Special">(</span><span class="Identifier">a:r</span><span class="Special">)</span>
+<span class="lnr">191 </span>    <span class="Statement">let</span> l:<span class="Statement">y</span> <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">rgb_number</span><span class="Special">(</span><span class="Identifier">a:g</span><span class="Special">)</span>
+<span class="lnr">192 </span>    <span class="Statement">let</span> l:z <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">rgb_number</span><span class="Special">(</span><span class="Identifier">a:b</span><span class="Special">)</span>
+<span class="lnr">193 </span>
+<span class="lnr">194 </span>    <span class="Statement">if</span> l:gx <span class="Statement">==</span> l:gy <span class="Statement">&amp;&amp;</span> l:gy <span class="Statement">==</span> l:gz
+<span class="lnr">195 </span><span class="Comment">      &quot; there are two possibilities</span>
+<span class="lnr">196 </span>      <span class="Statement">let</span> l:dgr <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">grey_level</span><span class="Special">(</span>l:gx<span class="Special">)</span> <span class="Statement">-</span> <span class="Identifier">a:r</span>
+<span class="lnr">197 </span>      <span class="Statement">let</span> l:dgg <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">grey_level</span><span class="Special">(</span>l:gy<span class="Special">)</span> <span class="Statement">-</span> <span class="Identifier">a:g</span>
+<span class="lnr">198 </span>      <span class="Statement">let</span> l:dgb <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">grey_level</span><span class="Special">(</span>l:gz<span class="Special">)</span> <span class="Statement">-</span> <span class="Identifier">a:b</span>
+<span class="lnr">199 </span>      <span class="Statement">let</span> l:dgrey <span class="Statement">=</span> <span class="Special">(</span>l:dgr * l:dgr<span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span>l:dgg * l:dgg<span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span>l:dgb * l:dgb<span class="Special">)</span>
+<span class="lnr">200 </span>      <span class="Statement">let</span> l:<span class="Statement">dr</span> <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">rgb_level</span><span class="Special">(</span>l:gx<span class="Special">)</span> <span class="Statement">-</span> <span class="Identifier">a:r</span>
+<span class="lnr">201 </span>      <span class="Statement">let</span> l:dg <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">rgb_level</span><span class="Special">(</span>l:gy<span class="Special">)</span> <span class="Statement">-</span> <span class="Identifier">a:g</span>
+<span class="lnr">202 </span>      <span class="Statement">let</span> l:db <span class="Statement">=</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">rgb_level</span><span class="Special">(</span>l:gz<span class="Special">)</span> <span class="Statement">-</span> <span class="Identifier">a:b</span>
+<span class="lnr">203 </span>      <span class="Statement">let</span> l:drgb <span class="Statement">=</span> <span class="Special">(</span>l:dr * l:dr<span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span>l:dg * l:dg<span class="Special">)</span> <span class="Statement">+</span> <span class="Special">(</span>l:db * l:db<span class="Special">)</span>
+<span class="lnr">204 </span>      <span class="Statement">if</span> l:dgrey <span class="Statement">&lt;</span> l:drgb
+<span class="lnr">205 </span><span class="Comment">        &quot; use the grey</span>
+<span class="lnr">206 </span>        <span class="Statement">return</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">grey_color</span><span class="Special">(</span>l:gx<span class="Special">)</span>
+<span class="lnr">207 </span>      <span class="Statement">else</span>
+<span class="lnr">208 </span><span class="Comment">        &quot; use the color</span>
+<span class="lnr">209 </span>        <span class="Statement">return</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">rgb_color</span><span class="Special">(</span>l:x, l:y, l:z<span class="Special">)</span>
+<span class="lnr">210 </span>      <span class="Statement">endif</span>
+<span class="lnr">211 </span>    <span class="Statement">else</span>
+<span class="lnr">212 </span><span class="Comment">      &quot; only one possibility</span>
+<span class="lnr">213 </span>      <span class="Statement">return</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">rgb_color</span><span class="Special">(</span>l:x, l:y, l:z<span class="Special">)</span>
+<span class="lnr">214 </span>    <span class="Statement">endif</span>
+<span class="lnr">215 </span>  <span class="Statement">endfun</span>
+<span class="lnr">216 </span>
+<span class="lnr">217 </span><span class="Comment">  &quot; returns the palette index to approximate the 'rrggbb' hex string</span>
+<span class="lnr">218 </span>  <span class="Statement">fun</span>! <span class="Special">&lt;SID&gt;</span>rgb<span class="Special">(</span>rgb<span class="Special">)</span>
+<span class="lnr">219 </span>    <span class="Statement">if</span> <span class="Identifier">a:rgb</span> <span class="Statement">==</span> <span class="Constant">&quot;ffffff&quot;</span>
+<span class="lnr">220 </span>      <span class="Statement">return</span> <span class="Constant">15</span>
+<span class="lnr">221 </span>    <span class="Statement">endif</span>
+<span class="lnr">222 </span>
+<span class="lnr">223 </span>    <span class="Statement">let</span> l:<span class="Statement">r</span> <span class="Statement">=</span> <span class="Special">(</span><span class="Constant">&quot;0x&quot;</span> <span class="Statement">.</span> <span class="Identifier">strpart</span><span class="Special">(</span><span class="Identifier">a:rgb</span>, <span class="Constant">0</span>, <span class="Constant">2</span><span class="Special">))</span> <span class="Statement">+</span> <span class="Constant">0</span>
+<span class="lnr">224 </span>    <span class="Statement">let</span> l:g <span class="Statement">=</span> <span class="Special">(</span><span class="Constant">&quot;0x&quot;</span> <span class="Statement">.</span> <span class="Identifier">strpart</span><span class="Special">(</span><span class="Identifier">a:rgb</span>, <span class="Constant">2</span>, <span class="Constant">2</span><span class="Special">))</span> <span class="Statement">+</span> <span class="Constant">0</span>
+<span class="lnr">225 </span>    <span class="Statement">let</span> l:<span class="Statement">b</span> <span class="Statement">=</span> <span class="Special">(</span><span class="Constant">&quot;0x&quot;</span> <span class="Statement">.</span> <span class="Identifier">strpart</span><span class="Special">(</span><span class="Identifier">a:rgb</span>, <span class="Constant">4</span>, <span class="Constant">2</span><span class="Special">))</span> <span class="Statement">+</span> <span class="Constant">0</span>
+<span class="lnr">226 </span>
+<span class="lnr">227 </span>    <span class="Statement">return</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">color</span><span class="Special">(</span>l:r, l:g, l:b<span class="Special">)</span>
+<span class="lnr">228 </span>  <span class="Statement">endfun</span>
+<span class="lnr">229 </span>
+<span class="lnr">230 </span><span class="Comment">  &quot; sets the highlighting for the given group, add optional fg, bg and attr</span>
+<span class="lnr">231 </span><span class="Comment">  &quot; values to override the terminal settings</span>
+<span class="lnr">232 </span>  <span class="Statement">fun</span>! <span class="Special">&lt;SID&gt;</span><span class="Statement">X</span><span class="Special">(</span>group, fg, bg, attr, <span class="Statement">...</span><span class="Special">)</span>
+<span class="lnr">233 </span>    <span class="Statement">let</span> l:ctermfg   <span class="Statement">=</span> <span class="Special">(</span><span class="Identifier">a:0</span> <span class="Statement">&gt;</span> <span class="Constant">0</span> <span class="Statement">&amp;&amp;</span> <span class="Identifier">a:1</span> <span class="Statement">!=</span> <span class="Constant">&quot;&quot;</span><span class="Special">)</span> ? <span class="Identifier">a:1</span> : <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">rgb</span><span class="Special">(</span><span class="Identifier">a:fg</span><span class="Special">)</span>
+<span class="lnr">234 </span>    <span class="Statement">let</span> l:ctermbg   <span class="Statement">=</span> <span class="Special">(</span><span class="Identifier">a:0</span> <span class="Statement">&gt;</span> <span class="Constant">1</span> <span class="Statement">&amp;&amp;</span> <span class="Identifier">a:2</span> <span class="Statement">!=</span> <span class="Constant">&quot;&quot;</span><span class="Special">)</span> ? <span class="Identifier">a:2</span> : <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">rgb</span><span class="Special">(</span><span class="Identifier">a:bg</span><span class="Special">)</span>
+<span class="lnr">235 </span>    <span class="Statement">let</span> l:ctermattr <span class="Statement">=</span> <span class="Special">(</span><span class="Identifier">a:0</span> <span class="Statement">&gt;</span> <span class="Constant">2</span> <span class="Statement">&amp;&amp;</span> <span class="Identifier">a:3</span> <span class="Statement">!=</span> <span class="Constant">&quot;&quot;</span><span class="Special">)</span> ? <span class="Identifier">a:3</span> : <span class="Identifier">a:attr</span>
+<span class="lnr">236 </span>
+<span class="lnr">237 </span>    <span class="Statement">if</span> <span class="Identifier">a:fg</span> <span class="Statement">!=</span> <span class="Constant">&quot;&quot;</span>
+<span class="lnr">238 </span>      <span class="Statement">exec</span> <span class="Constant">&quot;hi &quot;</span> <span class="Statement">.</span> <span class="Identifier">a:group</span> <span class="Statement">.</span> <span class="Constant">&quot; guifg=#&quot;</span> <span class="Statement">.</span> <span class="Identifier">a:fg</span> <span class="Statement">.</span> <span class="Constant">&quot; ctermfg=&quot;</span> <span class="Statement">.</span> l:ctermfg
+<span class="lnr">239 </span>    <span class="Statement">endif</span>
+<span class="lnr">240 </span>    <span class="Statement">if</span> <span class="Identifier">a:bg</span> <span class="Statement">!=</span> <span class="Constant">&quot;&quot;</span>
+<span class="lnr">241 </span>      <span class="Statement">exec</span> <span class="Constant">&quot;hi &quot;</span> <span class="Statement">.</span> <span class="Identifier">a:group</span> <span class="Statement">.</span> <span class="Constant">&quot; guibg=#&quot;</span> <span class="Statement">.</span> <span class="Identifier">a:bg</span> <span class="Statement">.</span> <span class="Constant">&quot; ctermbg=&quot;</span> <span class="Statement">.</span> l:ctermbg
+<span class="lnr">242 </span>    <span class="Statement">endif</span>
+<span class="lnr">243 </span>    <span class="Statement">if</span> <span class="Identifier">a:attr</span> <span class="Statement">!=</span> <span class="Constant">&quot;&quot;</span>
+<span class="lnr">244 </span>      <span class="Statement">exec</span> <span class="Constant">&quot;hi &quot;</span> <span class="Statement">.</span> <span class="Identifier">a:group</span> <span class="Statement">.</span> <span class="Constant">&quot; gui=&quot;</span> <span class="Statement">.</span> <span class="Identifier">a:attr</span>
+<span class="lnr">245 </span>    <span class="Statement">endif</span>
+<span class="lnr">246 </span>    <span class="Statement">if</span> l:ctermattr <span class="Statement">!=</span> <span class="Constant">&quot;&quot;</span>
+<span class="lnr">247 </span>      <span class="Statement">exec</span> <span class="Constant">&quot;hi &quot;</span> <span class="Statement">.</span> <span class="Identifier">a:group</span> <span class="Statement">.</span> <span class="Constant">&quot; cterm=&quot;</span> <span class="Statement">.</span> l:ctermattr
+<span class="lnr">248 </span>    <span class="Statement">endif</span>
+<span class="lnr">249 </span>  <span class="Statement">endfun</span>
+<span class="lnr">250 </span><span class="Comment">  &quot; }}}</span>
+<span class="lnr">251 </span>
+<span class="lnr">252 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Normal&quot;</span>, <span class="Constant">&quot;ffffff&quot;</span>, <span class="Special">&quot;2</span>22222<span class="Constant">&quot;, &quot;</span>&quot;<span class="Special">)</span>
+<span class="lnr">253 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;NonText&quot;</span>, <span class="Constant">&quot;addbe7&quot;</span>, <span class="Constant">&quot;3D3D3D&quot;</span>, <span class="Constant">&quot;bold&quot;</span><span class="Special">)</span>
+<span class="lnr">254 </span>
+<span class="lnr">255 </span><span class="Comment">  &quot; highlight groups</span>
+<span class="lnr">256 </span><span class="Comment">  &quot;CursorIM</span>
+<span class="lnr">257 </span><span class="Comment">  &quot;Directory</span>
+<span class="lnr">258 </span><span class="Comment">  &quot;WildMenu</span>
+<span class="lnr">259 </span><span class="Comment">  &quot;Menu</span>
+<span class="lnr">260 </span><span class="Comment">  &quot;Scrollbar</span>
+<span class="lnr">261 </span><span class="Comment">  &quot;Tooltip</span>
+<span class="lnr">262 </span>
+<span class="lnr">263 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Cursor&quot;</span>, <span class="Special">&quot;7</span>08090<span class="Constant">&quot;, &quot;</span>f0e68c&quot;, <span class="Constant">&quot;&quot;</span><span class="Special">)</span>
+<span class="lnr">264 </span>
+<span class="lnr">265 </span><span class="Comment">  &quot; setting a background color for the cursor line can hide</span>
+<span class="lnr">266 </span><span class="Comment">  &quot; other background colors such as Error and ErrorMsg</span>
+<span class="lnr">267 </span><span class="Comment">  &quot;call &lt;SID&gt;X(&quot;CursorLine&quot;, </span><span class="Constant">&quot;&quot;</span><span class="Comment">, </span><span class="Constant">&quot;333333&quot;</span><span class="Comment">, </span><span class="Constant">&quot;&quot;</span><span class="Comment">, </span><span class="Constant">&quot;&quot;</span><span class="Comment">, </span><span class="Constant">&quot;235&quot;</span><span class="Comment">, </span><span class="Constant">&quot;none&quot;</span><span class="Comment">)</span>
+<span class="lnr">268 </span><span class="Comment">  &quot;call &lt;SID&gt;X(&quot;CursorColumn&quot;, </span><span class="Constant">&quot;&quot;</span><span class="Comment">, </span><span class="Constant">&quot;333333&quot;</span><span class="Comment">, </span><span class="Constant">&quot;&quot;</span><span class="Comment">, </span><span class="Constant">&quot;&quot;</span><span class="Comment">, </span><span class="Constant">&quot;235&quot;</span><span class="Comment">)</span>
+<span class="lnr">269 </span>
+<span class="lnr">270 </span><span class="Comment">  &quot; use only bold for the cursorline to avoid covering the background</span>
+<span class="lnr">271 </span>  <span class="Statement">hi</span> clear CursorLine
+<span class="lnr">272 </span>  <span class="Statement">hi</span> clear CursorColumn
+<span class="lnr">273 </span>  <span class="Statement">hi</span> CursorLine <span class="Type">cterm</span>=<span class="PreProc">bold</span> <span class="Type">gui</span>=<span class="PreProc">bold</span>
+<span class="lnr">274 </span>  <span class="Statement">hi</span> CursorColumn <span class="Type">cterm</span>=<span class="PreProc">bold</span> <span class="Type">gui</span>=<span class="PreProc">bold</span>
+<span class="lnr">275 </span>
+<span class="lnr">276 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;StatusLine&quot;</span>, <span class="Special">&quot;c</span>2bfa5<span class="Constant">&quot;, &quot;</span><span class="Constant">000000</span><span class="Constant">&quot;, &quot;</span>reverse&quot;, <span class="Special">&quot;2</span>31<span class="Constant">&quot;, &quot;&quot;, &quot;</span>bold,reverse&quot;<span class="Special">)</span>
+<span class="lnr">277 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;StatusLineNC&quot;</span>, <span class="Special">&quot;c</span>2bfa5<span class="Constant">&quot;, &quot;</span><span class="Constant">7</span>f7f7f&quot;, <span class="Constant">&quot;reverse&quot;</span>, <span class="Special">&quot;2</span>31&quot;<span class="Special">)</span>
+<span class="lnr">278 </span>
+<span class="lnr">279 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Question&quot;</span>, <span class="Special">&quot;0</span>0ff7f&quot;, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;bold&quot;</span><span class="Special">)</span>
+<span class="lnr">280 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Error&quot;</span>, <span class="Constant">&quot;ffffff&quot;</span>, <span class="Special">&quot;9</span>13d3b&quot;, <span class="Constant">&quot;bold&quot;</span><span class="Special">)</span>
+<span class="lnr">281 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;ErrorMsg&quot;</span>, <span class="Constant">&quot;ffffff&quot;</span>, <span class="Special">&quot;9</span>13d3b&quot;, <span class="Constant">&quot;bold&quot;</span><span class="Special">)</span>
+<span class="lnr">282 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;ModeMsg&quot;</span>, <span class="Constant">&quot;daa520&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;&quot;</span><span class="Special">)</span>
+<span class="lnr">283 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;MoreMsg&quot;</span>, <span class="Special">&quot;0</span>0ff7f&quot;, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;bold&quot;</span><span class="Special">)</span>
+<span class="lnr">284 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Ignore&quot;</span>, <span class="Special">&quot;6</span>66666<span class="Constant">&quot;, &quot;&quot;, &quot;</span>&quot;<span class="Special">)</span>
+<span class="lnr">285 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Todo&quot;</span>, <span class="Special">&quot;f</span>9f747<span class="Constant">&quot;, &quot;</span>d75f00<span class="Constant">&quot;, &quot;</span>bold&quot;<span class="Special">)</span>
+<span class="lnr">286 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;VertSplit&quot;</span>, <span class="Special">&quot;c</span>2bfa5<span class="Constant">&quot;, &quot;</span><span class="Constant">7</span>f7f7f&quot;, <span class="Constant">&quot;reverse&quot;</span><span class="Special">)</span>
+<span class="lnr">287 </span>
+<span class="lnr">288 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;LineNr&quot;</span>, <span class="Special">&quot;4</span>44444<span class="Constant">&quot;, &quot;</span><span class="Constant">1</span>a1a1a&quot;, <span class="Constant">&quot;&quot;</span>, <span class="Special">&quot;2</span>39&quot;<span class="Special">)</span>
+<span class="lnr">289 </span>
+<span class="lnr">290 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Folded&quot;</span>, <span class="Constant">&quot;ffa500&quot;</span>, <span class="Special">&quot;3</span>33333<span class="Constant">&quot;, &quot;</span>bold&quot;<span class="Special">)</span>
+<span class="lnr">291 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;FoldColumn&quot;</span>, <span class="Special">&quot;d</span>2b48c&quot;, <span class="Special">&quot;2</span>22222<span class="Constant">&quot;, &quot;</span>&quot;<span class="Special">)</span>
+<span class="lnr">292 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;SignColumn&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;2a2a2a&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Special">&quot;2</span>36&quot;<span class="Special">)</span>
+<span class="lnr">293 </span>
+<span class="lnr">294 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Search&quot;</span>, <span class="Constant">&quot;ffffff&quot;</span>, <span class="Constant">&quot;6b8e23&quot;</span>, <span class="Constant">&quot;bold&quot;</span><span class="Special">)</span>
+<span class="lnr">295 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;IncSearch&quot;</span>, <span class="Constant">&quot;ffffff&quot;</span>, <span class="Constant">&quot;3a663a&quot;</span>, <span class="Constant">&quot;bold&quot;</span><span class="Special">)</span>
+<span class="lnr">296 </span>
+<span class="lnr">297 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;SpecialKey&quot;</span>, <span class="Constant">&quot;9acd32&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;&quot;</span><span class="Special">)</span>
+<span class="lnr">298 </span>
+<span class="lnr">299 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Title&quot;</span>, <span class="Constant">&quot;cd5c5c&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;&quot;</span><span class="Special">)</span>
+<span class="lnr">300 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Visual&quot;</span>, <span class="Constant">&quot;ffffff&quot;</span>, <span class="Constant">&quot;2e5e73&quot;</span>, <span class="Constant">&quot;bold&quot;</span><span class="Special">)</span>
+<span class="lnr">301 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;VisualNOS&quot;</span>, <span class="Constant">&quot;cccccc&quot;</span>, <span class="Constant">&quot;2e5e73&quot;</span>, <span class="Constant">&quot;underline&quot;</span><span class="Special">)</span>
+<span class="lnr">302 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;WarningMsg&quot;</span>, <span class="Constant">&quot;fa8072&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;&quot;</span><span class="Special">)</span>
+<span class="lnr">303 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;MatchParen&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Special">&quot;6</span>06060<span class="Constant">&quot;, &quot;</span>bold&quot;<span class="Special">)</span>
+<span class="lnr">304 </span>
+<span class="lnr">305 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;DiffAdd&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Special">&quot;2</span>42448<span class="Constant">&quot;, &quot;&quot;, &quot;&quot;, &quot;</span><span class="Constant">17</span>&quot;<span class="Special">)</span>
+<span class="lnr">306 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;DiffChange&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Special">&quot;5</span>9244a&quot;, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Special">&quot;5</span>3&quot;<span class="Special">)</span>
+<span class="lnr">307 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;DiffDelete&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Special">&quot;4</span>07680<span class="Constant">&quot;, &quot;&quot;, &quot;&quot;, &quot;</span><span class="Constant">24</span>&quot;<span class="Special">)</span>
+<span class="lnr">308 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;DiffText&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Special">&quot;b</span>34793<span class="Constant">&quot;, &quot;</span>&quot;<span class="Special">)</span>
+<span class="lnr">309 </span>
+<span class="lnr">310 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Pmenu&quot;</span>, <span class="Constant">&quot;eeeeee&quot;</span>, <span class="Special">&quot;4</span>44444<span class="Constant">&quot;, &quot;</span>&quot;<span class="Special">)</span>
+<span class="lnr">311 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;PmenuSel&quot;</span>, <span class="Constant">&quot;ffffff&quot;</span>, <span class="Special">&quot;5</span>55555<span class="Constant">&quot;, &quot;</span>bold&quot;<span class="Special">)</span>
+<span class="lnr">312 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;PmenuSbar&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Special">&quot;6</span>66666<span class="Constant">&quot;, &quot;</span>&quot;<span class="Special">)</span>
+<span class="lnr">313 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;PmenuThumb&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Special">&quot;6</span>06060<span class="Constant">&quot;, &quot;</span>&quot;<span class="Special">)</span>
+<span class="lnr">314 </span>
+<span class="lnr">315 </span><span class="Comment">  &quot; syntax highlighting groups</span>
+<span class="lnr">316 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Comment&quot;</span>, <span class="Special">&quot;8</span>7ceeb&quot;, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;&quot;</span><span class="Special">)</span>
+<span class="lnr">317 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Constant&quot;</span>, <span class="Constant">&quot;ff8080&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;&quot;</span><span class="Special">)</span>
+<span class="lnr">318 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Identifier&quot;</span>, <span class="Special">&quot;9</span>8fb98<span class="Constant">&quot;, &quot;&quot;, &quot;</span>none&quot;<span class="Special">)</span>
+<span class="lnr">319 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Statement&quot;</span>, <span class="Special">&quot;f</span>0e260<span class="Constant">&quot;, &quot;&quot;, &quot;</span>bold&quot;<span class="Special">)</span>
+<span class="lnr">320 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;PreProc&quot;</span>, <span class="Constant">&quot;cd5c5c&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;bold&quot;</span><span class="Special">)</span>
+<span class="lnr">321 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Type&quot;</span>, <span class="Special">&quot;9</span>1b365<span class="Constant">&quot;, &quot;&quot;, &quot;</span>bold&quot;<span class="Special">)</span>
+<span class="lnr">322 </span>  <span class="Statement">call</span> <span class="Special">&lt;</span><span class="Special">SID</span><span class="Special">&gt;</span><span class="Normal">X</span><span class="Special">(</span><span class="Constant">&quot;Special&quot;</span>, <span class="Constant">&quot;ffc266&quot;</span>, <span class="Constant">&quot;&quot;</span>, <span class="Constant">&quot;&quot;</span><span class="Special">)</span>
+<span class="lnr">323 </span><span class="Comment">  &quot;Underlined</span>
+<span class="lnr">324 </span>
+<span class="Folded">325 +-- 11 lines: delete functions -----------------------------------------------------------------------</span>
+<span class="lnr">336 </span><span class="Statement">endif</span>
+<span class="lnr">337 </span>
+<span class="lnr">338 </span><span class="Comment">&quot; vim: set fdl=0 fdm=marker:</span>
+</pre>
+</body>
+</html>
