@@ -1,7 +1,6 @@
 " Vim color file
 "
 " Name:   desertink.vim
-" URL:    https://github.com/toupeira/desertink.vim
 " Author: Markus Koller <markus-koller@gmx.ch>
 "
 " Note:   Only works in GUI and 88/256 color terminals
@@ -14,6 +13,9 @@
 
 " The colors are automatically converted for 88/256 color terminals,
 " adapted from http://www.vim.org/scripts/script.php?script_id=1243
+"
+" You can find the latest version at https://github.com/toupeira/desertink.vim
+" and see a screenshot at http://i.imgur.com/DZ35F.png
 "
 
 set background=dark
