@@ -335,6 +335,32 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   delf <SID>grey_level
   delf <SID>grey_number
   " }}}
+else
+  " basic colorscheme for 16-color terminals
+  highlight Statement ctermfg=Yellow
+  highlight Identifier ctermfg=Green
+  highlight Type ctermfg=DarkGreen
+  highlight Comment ctermfg=Cyan
+  highlight PreProc ctermfg=Blue
+  highlight LineNr ctermfg=DarkGray
+  highlight Special ctermfg=Brown
+  highlight Constant ctermfg=Red
+
+  highlight Search ctermfg=Black ctermbg=Green
+  highlight IncSearch ctermfg=DarkGray ctermbg=White
+  highlight Visual ctermfg=White ctermbg=Blue
+  highlight Folded cterm=bold,reverse ctermfg=DarkGray ctermbg=Brown
+
+  highlight Pmenu cterm=reverse ctermfg=DarkGray ctermbg=White
+  highlight PmenuSel ctermfg=Black ctermbg=White
+  highlight PmenuSbar ctermbg=Black
+  highlight PmenuThumb ctermfg=White
+
+  " use only bold for the cursorline to avoid covering the background
+  hi clear CursorLine
+  hi clear CursorColumn
+  hi CursorLine cterm=bold gui=bold
+  hi CursorColumn cterm=bold gui=bold
 endif
 
 " vim: set fdl=0 fdm=marker:
