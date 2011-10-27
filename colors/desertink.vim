@@ -304,7 +304,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("WarningMsg", "fa8072", "", "")
   call <SID>X("MatchParen", "", "606060", "bold")
 
-  call <SID>X("DiffAdd", "", "242448", "", "", "17")
+  call <SID>X("DiffAdd", "", "242464", "", "", "17")
   call <SID>X("DiffChange", "", "59244a", "", "", "53")
   call <SID>X("DiffDelete", "", "407680", "", "", "24")
   call <SID>X("DiffText", "", "b34793", "")
