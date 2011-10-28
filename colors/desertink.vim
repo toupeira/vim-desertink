@@ -270,10 +270,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   "call <SID>X("CursorColumn", "", "333333", "", "", "235")
 
   " use only bold for the cursorline to avoid covering the background
-  hi clear CursorLine
-  hi clear CursorColumn
-  hi CursorLine cterm=bold gui=bold
-  hi CursorColumn cterm=bold gui=bold
+  highlight clear CursorLine
+  highlight clear CursorColumn
+  highlight CursorLine cterm=bold gui=bold
+  highlight CursorColumn cterm=bold gui=bold
+
+  call <SID>X("ColorColumn", "", "333333", "", "")
 
   call <SID>X("StatusLine", "c2bfa5", "000000", "reverse", "231", "", "bold,reverse")
   call <SID>X("StatusLineNC", "c2bfa5", "7f7f7f", "reverse", "231")
@@ -357,10 +359,10 @@ else
   highlight PmenuThumb ctermfg=White
 
   " use only bold for the cursorline to avoid covering the background
-  hi clear CursorLine
-  hi clear CursorColumn
-  hi CursorLine cterm=bold gui=bold
-  hi CursorColumn cterm=bold gui=bold
+  highlight clear CursorLine
+  highlight clear CursorColumn
+  highlight CursorLine cterm=bold gui=bold
+  highlight CursorColumn cterm=bold gui=bold
 endif
 
 " vim: set fdl=0 fdm=marker:
