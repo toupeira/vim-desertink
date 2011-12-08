@@ -301,8 +301,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("SpecialKey", "9acd32", "", "")
 
   call <SID>X("Title", "cd5c5c", "", "")
-  call <SID>X("Visual", "ffffff", "2e5e73", "bold")
-  call <SID>X("VisualNOS", "cccccc", "2e5e73", "underline")
+  call <SID>X("Visual", "", "2e5e73", "bold")
+  call <SID>X("VisualNOS", "", "254A59", "bold")
   call <SID>X("WarningMsg", "fa8072", "", "")
   call <SID>X("MatchParen", "", "606060", "bold")
 
