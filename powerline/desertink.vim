@@ -1,6 +1,6 @@
 hi StatusLine gui=bold,reverse guifg=#444444 guibg=#ffffff cterm=bold,reverse ctermfg=238 ctermbg=231
 hi StatusLineNC gui=reverse guifg=#303030 guibg=#8a8a8a cterm=reverse ctermfg=236 ctermbg=245
-hi WildMenu gui=bold guifg=#303030 guibg=#afd700 cterm=bold ctermfg=16 ctermbg=236
+hi WildMenu gui=bold guifg=#000000 guibg=#afd700 cterm=bold ctermfg=0 ctermbg=148
 
 function! Stl_GetMode() " {{{
 	let ret = mode()
