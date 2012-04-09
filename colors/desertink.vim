@@ -266,14 +266,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " setting a background color for the cursor line can hide
   " other background colors such as Error and ErrorMsg
-	"call <SID>X("CursorLine", "", "333333", "", "", "235", "none")
-  "call <SID>X("CursorColumn", "", "333333", "", "", "235")
+  call <SID>X("CursorLine", "", "2a2a2a", "", "", "235", "none")
+  call <SID>X("CursorColumn", "", "2a2a2a", "", "", "235")
 
   " use only bold for the cursorline to avoid covering the background
-  highlight clear CursorLine
-  highlight clear CursorColumn
-  highlight CursorLine cterm=bold gui=bold
-  highlight CursorColumn cterm=bold gui=bold
+  "highlight clear CursorLine
+  "highlight clear CursorColumn
+  "highlight CursorLine cterm=bold gui=bold
+  "highlight CursorColumn cterm=bold gui=bold
 
   call <SID>X("ColorColumn", "", "333333", "", "")
 
