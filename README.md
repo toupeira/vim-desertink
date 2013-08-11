@@ -1,3 +1,6 @@
+desertink.vim
+=============
+
 This is a version of the default desert colorscheme with a
 darker background and more colorful foreground colors.
 
