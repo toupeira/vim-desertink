@@ -14,3 +14,7 @@ You can find the latest version at https://github.com/toupeira/desertink.vim
 and see a screenshot at http://i.imgur.com/DZ35F.png
 
 ![desertink](http://i.imgur.com/DZ35F.png)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/toupeira/vim-desertink/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
