@@ -1,9 +1,10 @@
 " Vim color file
 "
-" Name:   desertink.vim
-" Author: Markus Koller <markus-koller@gmx.ch>
+" Name:     desertink.vim
+" Version:  1.2
+" Author:   Markus Koller <markus-koller@gmx.ch>
 "
-" Note:   Only works in GUI and 88/256 color terminals
+" Note: Only works in GUI and 88/256 color terminals
 "
 " This is a version of the default desert colorscheme with a
 " darker background and more colorful foreground colors.
