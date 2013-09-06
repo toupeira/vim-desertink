@@ -34,7 +34,9 @@ let s:IA2 = [ '#777777' , '#3a3a3a' , 242 , 236     , '' ]
 let s:IA3 = [ '#999999' , s:N3[1]   , 244 , s:N3[3] , '' ]
 
 " Tabline
+let s:TN = s:N2 " normal buffers
 let s:TM = [ '#870000', '#ff8700',  88, 208, 'bold' ] " modified buffers
+let s:TH = [ s:N1[1], s:N1[0], s:N1[3], s:N1[2] ] " hidden buffers
 
 let s:file = copy(s:N3)
 
@@ -58,4 +60,6 @@ let g:airline#themes#desertink#palette.replace.airline_a = [ s:RE[0] , s:RE[1] ,
 let g:airline#themes#desertink#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3, s:file)
 
 let g:airline#themes#desertink#palette.tabline = {
-      \ 'airline_tabmod': s:TM }
+      \ 'airline_tab': s:TH,
+      \ 'airline_tabmod': s:TM,
+      \ 'airline_tabhid': s:TN }
