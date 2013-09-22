@@ -38,16 +38,14 @@ let s:TN = s:N2 " normal buffers
 let s:TM = [ '#870000', '#ff8700',  88, 208, 'bold' ] " modified buffers
 let s:TH = [ s:N1[1], s:N1[0], s:N1[3], s:N1[2] ] " hidden buffers
 
-let s:file = copy(s:N3)
-
 let g:airline#themes#desertink#palette = {}
 
-let g:airline#themes#desertink#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3, s:file)
+let g:airline#themes#desertink#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
 let g:airline#themes#desertink#palette.normal_modified = {
       \ 'airline_a': s:TM,
       \ 'airline_z': s:TM }
 
-let g:airline#themes#desertink#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3, s:file)
+let g:airline#themes#desertink#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
 let g:airline#themes#desertink#palette.insert_replace = {
       \ 'airline_a': [ s:RE[0]   , s:I1[1]   , s:RE[1]   , s:I1[3]   , ''     ] }
 
@@ -57,7 +55,7 @@ let g:airline#themes#desertink#palette.visual = {
 let g:airline#themes#desertink#palette.replace = copy(airline#themes#desertink#palette.normal)
 let g:airline#themes#desertink#palette.replace.airline_a = [ s:RE[0] , s:RE[1] , s:RE[2] , s:RE[3] , '' ]
 
-let g:airline#themes#desertink#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3, s:file)
+let g:airline#themes#desertink#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3)
 
 let g:airline#themes#desertink#palette.tabline = {
       \ 'airline_tab': s:TH,
