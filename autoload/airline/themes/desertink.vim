@@ -45,7 +45,7 @@ let g:airline#themes#desertink#palette.normal_modified = {
       \ 'airline_a': s:TM,
       \ 'airline_z': s:TM }
 
-let g:airline#themes#desertink#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
+let g:airline#themes#desertink#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:N3)
 let g:airline#themes#desertink#palette.insert_replace = {
       \ 'airline_a': [ s:RE[0]   , s:I1[1]   , s:RE[1]   , s:I1[3]   , ''     ],
       \ 'airline_z': [ s:RE[0]   , s:I1[1]   , s:RE[1]   , s:I1[3]   , ''     ] }
