@@ -63,4 +63,5 @@ let g:airline#themes#desertink#palette.inactive = airline#themes#generate_color_
 let g:airline#themes#desertink#palette.tabline = {
       \ 'airline_tab': s:TH,
       \ 'airline_tabmod': s:TM,
+      \ 'airline_tabmod_unsel': s:TM,
       \ 'airline_tabhid': s:TN }
