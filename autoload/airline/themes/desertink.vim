@@ -34,9 +34,10 @@ let s:IA2 = [ '#777777' , '#3a3a3a' , 242 , 236     , '' ]
 let s:IA3 = [ '#999999' , s:N3[1]   , 244 , s:N3[3] , '' ]
 
 " Tabline
-let s:TN = s:N2 " normal buffers
-let s:TM = [ '#870000', '#ff8700',  88, 208, 'bold' ] " modified buffers
-let s:TH = [ s:N1[1], s:N1[0], s:N1[3], s:N1[2] ] " hidden buffers
+let s:TN  = s:N2 " normal buffers
+let s:TM  = [ '#870000', '#ff8700',  88, 208, 'bold' ] " modified buffers
+let s:TMU = [ '#ff8700', '#870000', 208,  88, 'bold' ] " modified unselected buffers
+let s:TH  = [ s:N1[1], s:N1[0], s:N1[3], s:N1[2] ] " hidden buffers
 
 let g:airline#themes#desertink#palette = {}
 
@@ -63,5 +64,5 @@ let g:airline#themes#desertink#palette.inactive = airline#themes#generate_color_
 let g:airline#themes#desertink#palette.tabline = {
       \ 'airline_tab': s:TH,
       \ 'airline_tabmod': s:TM,
-      \ 'airline_tabmod_unsel': s:TM,
+      \ 'airline_tabmod_unsel': s:TMU,
       \ 'airline_tabhid': s:TN }
