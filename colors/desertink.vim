@@ -16,7 +16,6 @@
 " adapted from http://www.vim.org/scripts/script.php?script_id=1243
 "
 " You can find the latest version at https://github.com/toupeira/desertink.vim
-" and see a screenshot at http://i.imgur.com/DZ35F.png
 "
 
 set background=dark
