@@ -312,10 +312,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("WarningMsg", "fa8072", "", "")
   call <SID>X("MatchParen", "", "606060", "bold")
 
-  call <SID>X("DiffAdd", "", "242464", "", "", "17")
-  call <SID>X("DiffChange", "", "59244a", "", "", "53")
-  call <SID>X("DiffDelete", "", "407680", "", "", "24")
-  call <SID>X("DiffText", "", "b34793", "")
+  call <SID>X("DiffAdd", "d7ffaf", "5f875f", "")
+  call <SID>X("DiffChange", "d7d7ff", "5f5f87", "")
+  call <SID>X("DiffDelete", "ff8080", "cc6666", "")
+  call <SID>X("DiffText", "1d1f21", "81a2be", "")
 
   call <SID>X("Pmenu", "eeeeee", "444444", "")
   call <SID>X("PmenuSel", "ffffff", "555555", "bold")
