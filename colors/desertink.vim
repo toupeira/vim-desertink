@@ -315,7 +315,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("DiffAdd", "d7ffaf", "5f875f", "")
   call <SID>X("DiffChange", "d7d7ff", "5f5f87", "")
   call <SID>X("DiffDelete", "ff8080", "cc6666", "")
-  call <SID>X("DiffText", "1d1f21", "81a2be", "")
+  call <SID>X("DiffText", "5f5f87", "81a2be", "")
 
   call <SID>X("Pmenu", "eeeeee", "444444", "")
   call <SID>X("PmenuSel", "ffffff", "555555", "bold")
