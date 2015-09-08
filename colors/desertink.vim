@@ -279,8 +279,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   call <SID>X("ColorColumn", "", "333333", "", "")
 
-  call <SID>X("StatusLine", "262626", "ffffff", "reverse", "231", "", "bold,reverse")
-  call <SID>X("StatusLineNC", "262626", "808080", "reverse", "231")
+  call <SID>X("StatusLine", "262626", "ffffff", "reverse", "", "", "reverse")
+  call <SID>X("StatusLineNC", "262626", "808080", "reverse", "")
 
   call <SID>X("Question", "00ff7f", "", "bold")
   call <SID>X("Error", "ffffff", "913d3b", "bold")
