@@ -289,6 +289,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("MoreMsg", "00ff7f", "", "bold")
   call <SID>X("Ignore", "666666", "", "")
   call <SID>X("Todo", "f9f747", "d75f00", "bold")
+  call <SID>X("SpellBad", "", "913d3b", "")
 
   "call <SID>X("VertSplit", "c2bfa5", "7f7f7f", "reverse")
   highlight! link VertSplit LineNr
