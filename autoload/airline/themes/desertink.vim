@@ -12,21 +12,21 @@
 " * Visual mode only changes the mode section. Otherwise
 "   it appears the same as normal mode
 
-" Normal mode                                    " fg             & bg
-let s:N1 = [ '#005f00' , '#afd700' , 22  , 148 ] " darkestgreen   & brightgreen
-let s:N2 = [ '#bbbbbb' , '#505050' , 250 , 238 ] " gray8          & gray4
-let s:N3 = [ '#ffffff' , '#303030' , 231 , 235 ] " white          & gray2
+" Normal mode
+let s:N1 = [ '#005f00' , '#afd700' , 22  , 148, '' ]
+let s:N2 = [ '#bbbbbb' , '#444444' , 250 , 238, '' ]
+let s:N3 = [ '#ffffff' , '#303030' , 231 , 235, 'bold' ]
 
-" Insert mode                                    " fg             & bg
-let s:I1 = [ '#ffffff' , '#004866' , 231 , 24  ] " white          & darkestcyan
-let s:I2 = [ '#99DDFF' , '#0087af' , 74  , 31  ] " darkcyan       & darkblue
-let s:I3 = [ '#B2E5FF' , '#005f87' , 117 , 24  ] " mediumcyan     & darkestblue
+" Insert mode
+let s:I1 = [ '#ffffff' , '#004866' , 231 , 24 ]
+let s:I2 = [ '#99DDFF' , '#0087af' , 74  , 31 ]
+let s:I3 = [ '#B2E5FF' , '#005f87' , 117 , 24 ]
 
-" Visual mode                                    " fg             & bg
-let s:V1 = [ '#080808' , '#ffaf00' , 232 , 214 ] " gray3          & brightestorange
+" Visual mode
+let s:V1 = [ '#080808' , '#ffaf00' , 232 , 214 ]
 
-" Replace mode                                   " fg             & bg
-let s:RE = [ '#ffffff' , '#d74444' , 231 , 9   ] " white          & brightred
+" Replace mode
+let s:RE = [ '#ffffff' , '#d74444' , 231 , 9 ]
 
 " Inactive mode
 let s:IA1 = [ '#777777' , '#4a4a4a' , 240 , 237     , '' ]
@@ -37,7 +37,7 @@ let s:IA3 = [ '#999999' , s:N3[1]   , 244 , s:N3[3] , '' ]
 let s:TN  = s:N2 " normal buffers
 let s:TM  = [ '#870000', '#ff8700',  88, 208, 'bold' ] " modified buffers
 let s:TMU = [ '#ff8700', '#870000', 208,  88, 'bold' ] " modified unselected buffers
-let s:TH  = [ s:N1[1], s:N1[0], s:N1[3], s:N1[2] ] " hidden buffers
+let s:TH  = [ s:N1[1], s:N1[0], s:N1[3], s:N1[2] ]     " hidden buffers
 
 let g:airline#themes#desertink#palette = {}
 

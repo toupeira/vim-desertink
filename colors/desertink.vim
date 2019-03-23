@@ -251,8 +251,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   endfun
   " }}}
 
-  call <SID>X("Normal", "ffffff", "222222", "")
-  call <SID>X("NonText", "addbe7", "3D3D3D", "bold")
+  call <SID>X("Normal", "ffffff", "121212", "", "", "233")
+  call <SID>X("NonText", "addbe7", "262626", "bold", "", "235")
 
   highlight! link TabLineFill Normal
 
@@ -268,8 +268,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " setting a background color for the cursor line can hide
   " other background colors such as Error and ErrorMsg
-  call <SID>X("CursorLine", "", "2a2a2a", "", "", "235", "none")
-  call <SID>X("CursorColumn", "", "2a2a2a", "", "", "235")
+  call <SID>X("CursorLine", "", "1a1a1a", "", "", "235", "none")
+  call <SID>X("CursorColumn", "", "1a1a1a", "", "", "235")
 
   " use only bold for the cursorline to avoid covering the background
   "highlight clear CursorLine
@@ -277,7 +277,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   "highlight CursorLine cterm=bold gui=bold
   "highlight CursorColumn cterm=bold gui=bold
 
-  call <SID>X("ColorColumn", "", "333333", "", "")
+  call <SID>X("ColorColumn", "", "222222", "", "")
 
   call <SID>X("StatusLine", "262626", "ffffff", "reverse", "", "", "reverse")
   call <SID>X("StatusLineNC", "262626", "808080", "reverse", "")
@@ -294,13 +294,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   "call <SID>X("VertSplit", "c2bfa5", "7f7f7f", "reverse")
   highlight! link VertSplit LineNr
 
-  call <SID>X("LineNr", "444444", "1a1a1a", "", "239")
-  "call <SID>X("CursorLineNr", "aaaaaa", "1a1a1a", "", "253")
-  highlight! link CursorLineNr Folded
+  call <SID>X("LineNr", "3e3e3e", "080808", "", "239")
+  "call <SID>X("CursorLineNr", "aaaaaa", "080808", "", "253")
+  highlight! link CursorLineNr CursorLine
 
-  call <SID>X("Folded", "ffa500", "333333", "bold")
-  call <SID>X("FoldColumn", "d2b48c", "222222", "")
-  call <SID>X("SignColumn", "", "2a2a2a", "", "", "236")
+  call <SID>X("Folded", "ffa500", "262626", "bold")
+  call <SID>X("FoldColumn", "d2b48c", "121212", "")
+  call <SID>X("SignColumn", "", "121212", "", "", "233")
 
   call <SID>X("Search", "ffffff", "6b8e23", "bold")
   call <SID>X("IncSearch", "ffffff", "3a663a", "bold")
@@ -308,8 +308,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("SpecialKey", "9acd32", "", "")
 
   call <SID>X("Title", "cd5c5c", "", "")
-  call <SID>X("Visual", "", "2e5e73", "bold")
-  call <SID>X("VisualNOS", "", "254A59", "bold")
+  call <SID>X("Visual", "", "005F87", "bold")
   call <SID>X("WarningMsg", "fa8072", "", "")
   call <SID>X("MatchParen", "", "606060", "bold")
 
