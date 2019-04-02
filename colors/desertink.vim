@@ -29,7 +29,7 @@ if version > 580
 endif
 let g:colors_name="desertink"
 
-if has("gui_running") || &t_Co == 88 || &t_Co == 256
+if has("gui_running") || &t_Co >= 88
   " functions {{{
   " returns an approximate grey index for the given grey level
   fun! <SID>grey_number(x)
@@ -231,24 +231,38 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " sets the highlighting for the given group, add optional fg, bg and attr
   " values to override the terminal settings
-  fun! <SID>X(group, fg, bg, attr, ...)
-    let l:ctermfg   = (a:0 > 0 && a:1 != "") ? a:1 : <SID>rgb(a:fg)
-    let l:ctermbg   = (a:0 > 1 && a:2 != "") ? a:2 : <SID>rgb(a:bg)
-    let l:ctermattr = (a:0 > 2 && a:3 != "") ? a:3 : a:attr
+  if has('gui_running') || (has('termguicolors') && &termguicolors)
+    fun! <SID>X(group, fg, bg, attr, ...)
+      if a:fg != ""
+        exec "hi " . a:group . " guifg=#" . a:fg
+      endif
+      if a:bg != ""
+        exec "hi " . a:group . " guibg=#" . a:bg
+      endif
+      if a:attr != ""
+        exec "hi " . a:group . " gui=" . a:attr
+      endif
+    endfun
+  else
+    fun! <SID>X(group, fg, bg, attr, ...)
+      let l:ctermfg   = (a:0 > 0 && a:1 != "") ? a:1 : <SID>rgb(a:fg)
+      let l:ctermbg   = (a:0 > 1 && a:2 != "") ? a:2 : <SID>rgb(a:bg)
+      let l:ctermattr = (a:0 > 2 && a:3 != "") ? a:3 : a:attr
 
-    if a:fg != ""
-      exec "hi " . a:group . " guifg=#" . a:fg . " ctermfg=" . l:ctermfg
-    endif
-    if a:bg != ""
-      exec "hi " . a:group . " guibg=#" . a:bg . " ctermbg=" . l:ctermbg
-    endif
-    if a:attr != ""
-      exec "hi " . a:group . " gui=" . a:attr
-    endif
-    if l:ctermattr != ""
-      exec "hi " . a:group . " cterm=" . l:ctermattr
-    endif
-  endfun
+      if a:fg != ""
+        exec "hi " . a:group . " guifg=#" . a:fg . " ctermfg=" . l:ctermfg
+      endif
+      if a:bg != ""
+        exec "hi " . a:group . " guibg=#" . a:bg . " ctermbg=" . l:ctermbg
+      endif
+      if a:attr != ""
+        exec "hi " . a:group . " gui=" . a:attr
+      endif
+      if l:ctermattr != ""
+        exec "hi " . a:group . " cterm=" . l:ctermattr
+      endif
+    endfun
+  endif
   " }}}
 
   call <SID>X("Normal", "ffffff", "121212", "", "", "233")
